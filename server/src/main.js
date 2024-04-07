@@ -12,6 +12,7 @@ app.use('/public', express.static(path.join(__dirname, '../public')))
 
 app.get('/', (req, res) => {
     const name = req.query?.name || "world";
+    const theme = req.query?.theme || "";
     res.send(`<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -20,10 +21,16 @@ app.get('/', (req, res) => {
         <link rel="stylesheet" href="public/style.css">
     </head>
     <body>
-        <h1>Hello ${name}</h1>
+        <h1 data-theme="${theme}">Hello ${name}</h1>
         <form>
             <label for="name">Name</label>
             <input type="text" name="name" id="name" />
+            <label for="theme">Theme</label>
+            <select name="theme" id="theme">
+                <option value="">--default--</option>
+                <option value="dark">dark</option>
+                <option value="colorful">colorful</option>
+            </select>
             <input type="submit" />
         </form>
         <script src="public/main.js"></script>
