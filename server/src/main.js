@@ -3,6 +3,11 @@ const path = require('path')
 const app = express()
 const port = 3000
 
+app.use((req, res, next) => {
+    console.log(new Date().toISOString(), req.method, req.originalUrl)
+    next()
+})
+
 app.use('/public', express.static(path.join(__dirname, '../public')))
 
 app.get('/', (req, res) => {
