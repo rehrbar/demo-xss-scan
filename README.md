@@ -1,5 +1,7 @@
 # Demo XSS Scanner
 
+This project represents a simple playground to test XSS, their mitigation and some automated scanners.
+
 ## Build and Start Server
 
 ```sh
